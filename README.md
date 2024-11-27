@@ -6,30 +6,32 @@ A estrutura do projeto segue a organização recomendada pela Clean Architecture
 ```bash
 clean-architecture-node/
 ├── src/
-│   ├── application/       
+│   ├── application/
 │   │   └── usecases/
 │   │       └── user/
 │   │           └── createUser.js
-│   ├── domain/            
+│   ├── controllers/
+│   │   └── userController.js
+│   ├── domain/
 │   │   ├── entities/
-│   │   │   └── user/
-│   │   │       └── user.js
+│   │   │   └── user.js
 │   │   └── repositories/
 │   │       └── userRepository.js
-│   ├── infrastructure/    
+│   ├── infrastructure/
 │   │   ├── dao/
 │   │   │   └── userRepo.js
-│   │   └── express/
-│   │       └── routes.js
-│   └── index.js          
-├── package.json           
+│   │   └── http/
+│   │       └── express.js
+│   └── index.js
+├── package.json    
 ```
 ## Descrição das Pastas
 - **application/usecases: Casos de uso que implementam as regras de aplicação e orquestram as interações entre as camadas.**
 - **domain/entities: Contém as entidades principais do domínio e suas regras.**
 - **domain/repositories: Define as interfaces para persistência e manipulação de dados.**
+- **controller: Gerencia a comunicação entre as requisições HTTP e os casos de uso, transformando as entradas e respostas.**
 - **infrastructure/dao: Implementações concretas das interfaces definidas na camada de domínio (exemplo: repositórios que simulam ou acessam o banco de dados).**
-- **infrastructure/express: Configuração das rotas e integração com o framework Express.**
+- **infrastructure/http: Gerencia a configuração do servidor HTTP e frameworks, como o Express.**
 - **index.js: Ponto de entrada que inicializa a aplicação.**
 
 ## 🚀 Como executar o projeto
